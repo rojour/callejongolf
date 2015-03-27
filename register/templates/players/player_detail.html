@@ -1,0 +1,21 @@
+{% extends 'players/base.html' %}
+
+{% block content %}
+    <div class="date">
+    {% if player.created.date %}
+        {{ player.created_date }}
+    {% endif %}
+        {{ player.created_date }}
+    <a class="btn btn-default" href="{% url 'player_edit' pk=player.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    </div>
+        <h1>{{ player.first_name }} {{ player.last_name }}</h1>
+		<h4>Shirt Size: {{ player.shirt }}</h4>
+		<h4>email: {{ player.email }}</h4>
+		<h4>Phone: {{ player.phone }}</h4>
+		<h4>Comments: {{ player.comments }}</h4>
+		<hr>
+		<h4>Pay Status: {{ pay_status }}</h4>
+		<h4>Pay Methood: {{ pay_method }}</h4>
+		<hr>
+		<h4>Group Play: {{ group_play }}</hr?
+{% endblock %}

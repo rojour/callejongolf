@@ -1,0 +1,27 @@
+{% extends 'players/base.html' %}
+
+{% block content %}
+<div>
+    <h1 class="text-center"><a href="">Players List</a></h1>
+</div>
+	<div>
+    	<table class="table table-striped table-hover" >
+			<theader>
+				<tr class="text-center">
+					<td><h4>First Name</h4></td>
+		    		<td><h4>Last Name</h4></td>
+		    		<td><h4>email</h4></td>
+				</tr>
+			</theader>
+			<tbody>
+			{% for player in players %}
+				<tr class="text-center">
+					<td><a href="{% url 'register.views.player_detail' pk=player.pk %}">{{ player.first_name }}</a></td>
+					<td><a href="{% url 'register.views.player_detail' pk=player.pk %}">{{ player.last_name }}</a></td>
+					<td><p>{{ player.email }}</p></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock content %}

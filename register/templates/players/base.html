@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<html>
+     <head>
+         <title>Players List</title>
+         
+         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+         <link rel="stylesheet" href="{% static 'css/register.css' %}">
+         <link href="//fonts.googleapis.com/css?family=Raleway&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+         
+     </head>
+     <body>
+         <div class="page-header">
+             <a href="{% url 'register.views.player_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+             <h1><a href="{% url 'register.views.players_list' %}">El Callejon Golf</a></h1>
+         </div>
+         <div class="content container">
+             <div class="row">
+         
+		        {% block content %}
+		        {% endblock %}
+		      </div>
+		  </div>
+     </body>
+</html>
