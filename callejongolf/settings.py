@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'register',
+    'home',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,11 +61,14 @@ WSGI_APPLICATION = 'callejongolf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'register',
+        'USER': 'postgres',
+        'PASSWORD': '290190',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 

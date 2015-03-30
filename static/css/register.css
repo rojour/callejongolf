@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #009900;
+    background-color: #227C45;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -10,6 +10,11 @@
     text-decoration: none;
 }
 
+.page-header p {
+    color: #ffffff;
+    margin-left: 90px;
+}
+
 a {
     color: black;
 }
@@ -18,7 +23,7 @@ a {
     margin-left: 80px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p {
     font-family:'Raleway';
 }
 
@@ -34,6 +39,7 @@ h1, h2, h3, h4 {
 .player-form textarea, .player-form input {
     width: 100%;
 }
+
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;

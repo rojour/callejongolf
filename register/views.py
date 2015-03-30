@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Player
-from .forms import PlayerForm
+from .models import Player, Sponsor
+from .forms import PlayerForm, SponsorForm
 
 
 def players_list(request):
-    players = Player.objects.filter(created_date__lte=timezone.now()).order_by('last_name')
+    players = Player.objects.order_by('group_play')
     return render(request, 'players/players_list.html', {'players': players})
     
     
@@ -40,3 +40,37 @@ def player_edit(request, pk):
         form = PlayerForm(instance=player)
     return render(request, 'players/player_edit.html', {'form': form})
     
+def sponsor_list(request):
+    sponsors = Sponsor.objects.order_by('sponsor_name')
+    return render(request, 'sponsors/sponsor_list.html', {'sponsors': sponsors})
+
+    
+def sponsor_detail(request, pk):
+    sponsor = get_object_or_404(Sponsor, pk=pk)
+    return render(request, 'sponsors/sponsor_detail.html', {'sponsor': sponsor})
+
+def sponsor_new(request):
+    if request.method == "POST":
+        form = SponsorForm(request.POST)
+        if form.is_valid():
+            sponsor = form.save(commit=False)
+            sponsor.author = request.user
+            sponsor.save()
+            return redirect('register.views.sponsor_detail', pk=sponsor.pk)
+    else:
+        form = SponsorForm()
+    return render(request, 'sponsors/sponsor_edit.html', {'form': form})
+    
+    
+def sponsor_edit(request, pk):
+    sponsor = get_object_or_404(Sponsor, pk=pk)
+    if request.method == "POST":
+        form = SponsorForm(request.POST, instance=sponsor)
+        if form.is_valid():
+            sponsor = form.save(commit=False)
+            sponsor.author = request.user
+            sponsor.save()
+            return redirect('register.views.sponsor_detail', pk=sponsor.pk)
+    else:
+        form = SponsorForm(instance=sponsor)
+    return render(request, 'sponsors/sponsor_edit.html', {'form': form})
