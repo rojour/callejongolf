@@ -1,0 +1,16 @@
+{% extends 'sponsors/sponsor_base.html' %}
+
+{% block content %}
+    <h1>New Sponsor</h1>
+    <form method="POST" class="player-form">{% csrf_token %}
+        {{ form.as_p }}
+        <hr>
+    <h1>Players for Sponsor</h1>
+    <p>The package of sponsorship that you have selected include players. Following is the the form to register the players.</p>
+    <p>If you don't know the information, you can contact us later and we can update the information.</p>
+    <p>We will keep a place holder on our list, but please let us know before the deadline, so we can have an accurate list.</p>
+    <form method="POST" class="player-form">{% csrf_token %}
+        {{ player_formset.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

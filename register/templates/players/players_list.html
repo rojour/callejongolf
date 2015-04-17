@@ -11,6 +11,8 @@
 					<td><h4>First Name</h4></td>
 		    		<td><h4>Last Name</h4></td>
 		    		<td><h4>email</h4></td>
+		    		<td><h4>sponsor</h4></td>
+		    		<td><h4>edit/delete</h4></td>
 				</tr>
 			</theader>
 			<tbody>
@@ -19,6 +21,14 @@
 					<td><a href="{% url 'register.views.player_detail' pk=player.pk %}">{{ player.first_name }}</a></td>
 					<td><a href="{% url 'register.views.player_detail' pk=player.pk %}">{{ player.last_name }}</a></td>
 					<td><p>{{ player.email }}</p></td>
+					<td><p>{{ player.sponsor }}</p></td>
+					<td>{% if user.is_authenticated %}
+    					 <a class="btn btn-default" href="{% url 'player_edit' pk=player.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    					 <a class="btn btn-default" href="{% url 'player_remove' pk=player.pk %}" onclick="return confirm('Are you sure want to delete');"><span class="glyphicon glyphicon-remove"></span></a>
+    					 {% else %}
+    					 <a class="btn btn-default" href="{% url 'player_edit' pk=player.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    					 {% endif %}
+    					</td>
 				</tr>
 			{% endfor %}
 			</tbody>

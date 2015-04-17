@@ -1,0 +1,39 @@
+{% extends 'home/home_base.html' %}
+{% block content %}
+
+  <div class="text-center">
+    <h1>Players Information</h1>
+    <p class="lead"><strong>Course:</strong> Crossings at Carlsbad<br><strong>Format:</strong> Scramble<br><strong>Entry Deadline:</strong> Sep 18th, 2015<br><strong>Entry Fee:</strong> $195 per player<br><strong>Reception Only Fee:</strong> $40 per guest,<br><strong>All proceeds of the tournament, auctions and raffle will be donated to the Epilepsy Foundation.</strong></p>
+    <h2>Event Highlights</h2>
+    <p class="lead">18 Hole Golf  Tournament Scramble Scoring Format<br>Continental Breakfast at the golf course<br>Awards Presentation at El Callejon Restaurant<br>El Callejon’s Famous Buffet with authentic Mexican and local flavors<br>Selection of Complimentary Cocktails<br>Exciting Raffle Prices<br>Silent and Live Auctions<br>Chance to win a “Hole in One” car<br>Longest Drive and Closest to the Pin contests</p>
+         
+    <p><a href="{% url 'register.views.player_new' %}" class="btn btn-large btn-success"><span class="glyphicon glyphicon-pencil"></span> Register Now</a></p>
+  </div>
+  <div class="container marketing">
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class=" text-center">Entry Fee Includes</h2>
+          <li style=margin-left:10% >Golf, Tournament Shirt and Hat</li>
+          <li style=margin-left:10% >Personalized Bag Tag, Prizes</li>
+          <li style=margin-left:10% >Trophy’s  and  Awards Reception at <strong>El Callejon</strong> featuring a full buffet and selected complementary cocktails</li>
+          <li style=margin-left:10% >Silent and Live auctions.</li>
+      </div>
+      <div class="col-md-4">
+        <h2 class=" text-center">Reception Only Fee Includes</h2>
+          <li style=margin-left:10% >Awards Reception at <strong>El Callejon</strong> featuring a full buffet and selected complementary cocktails</li>
+          <li style=margin-left:10% >Silent and Live auctions.</li>
+      </div>
+      <div class="col-md-4">
+        <h2 class=" text-center">Schedule of Events</h2>
+			  <li style=margin-left:10% >7:30 am - registration opens for the players</li>
+			  <li style=margin-left:10% >7:30 am - breakfast is available</li>
+			  <li style=margin-left:10% >7:30 am - players can begin warmup</li>
+			  <li style=margin-left:10% ><strong>9:00 am - tournament begins</strong></li>
+			  <hr>
+			  <li style=margin-left:10% >2:30 pm - awards party starts at El Callejon</li>
+			  <li style=margin-left:10% >3:30 pm - raffle and silent auction</li>
+      </div>
+    </div>
+  </div> <!-- /container -->
+{% include 'home/sponsor_logos.html' %}
+{% endblock %}

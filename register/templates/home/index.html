@@ -1,30 +1,26 @@
-{% load staticfiles %}
-<html>
-     <head>
-         <title>Players List</title>
-         
-         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-         <link rel="stylesheet" href="{% static 'css/register.css' %}">
-         <link href="//fonts.googleapis.com/css?family=Raleway&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-         
-     </head>
-     <body>
-         <div class="page-header">
-             <h1><a href="">El Callejon Golf</a></h1>
-         </div>
-         <div class="content container">
-             <div class="row">
-                 <div><h1 class="text-center"><img src="http://www.elcallejongolf.com/assets/Logos/Golf_Logo_2015.png"> <br> Sep. 26th, 2015<br><small class="text-muted">Saturday</small><hr></h1></div>
-                 <div class="col-md-2"></div>
-                 <div class="col-md-4">
-                     <h1 class="text-center"><a href="{% url 'register.views.players_list' %}">Players</a></h1>
-                 </div>
-                 <div class="col-md-4">
-                     <h1 class="text-center"><a href="{% url 'register.views.sponsor_list' %}">Sponsors</a></h1>
-                 </div>
-		      </div>
-		  </div>
-     </body>
-         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
-</html>
+{% extends 'home/home_base.html' %}
+{% block content %}
+
+<div class="container">
+   <img class="img-responsive center-block" src="http://www.elcallejongolf.com/assets/Logos/Golf_Logo_2015.png">
+</div>
+	  <!-- Carousel
+    ================================================== -->
+    	  <div class="slider-wrapper theme-default container">
+	    	 <div id="slider" class="nivoSlider">
+		         <a href="#"> <img src="../../static/img/Jean-2015.jpg" alt="Our inspiration..."  title="Our inspiration..." alt="" data-transition="fade"> </a>
+		         <a href="#"><img src="../../static/img/early.jpg"  alt="Bright and early..." title="Bright and early..." data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/register.jpg"  alt="Registration" title="Registration" data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/warming.jpg"  alt="Warming up." title="Warming up." data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/ready.jpg"  alt="Ready to start." title="Ready to start." data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/offtoplay.jpg"  alt="Lets play!" title="Lets play!" data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/samples.jpg"  alt="amples anyone?" title="Samples anyone?" data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/fun.jpg"  alt="Fun after the event." title="Fun after the event." data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/raffle.jpg"  alt="Raffle." title="Raffle." data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/awards&raffle.jpg"  alt="Awards & Raffle." title="Awards & Raffle." data-transition="fade" ></a>
+		         <a href="#"><img src="../../static/img/thanks.jpg"  alt="Thank you all." title="Thank you all." data-transition="fade" ></a>
+	    	 </div>
+        </div>
+{% include 'home/sponsor_logos.html' %}
+
+{% endblock %}

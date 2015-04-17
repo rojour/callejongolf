@@ -10,6 +10,7 @@
 				<tr class="text-center">
 					<td><h4>Sponsor name</h4></td>
 		    		<td><h4>Sponsor Lebel</h4></td>
+		    		<td><h4>edit/delete</h4></td>
 				</tr>
 			</theader>
 			<tbody>
@@ -17,7 +18,15 @@
 				<tr class="text-center">
 					<td><a href="{% url 'register.views.sponsor_detail' pk=sponsor.pk %}">{{ sponsor.sponsor_name }}</a></td>
 					<td><a href="{% url 'register.views.sponsor_detail' pk=sponsor.pk %}">{{ sponsor.sponsor_type }}</a></td>
-				</tr>
+					<td>{% if user.is_authenticated %}
+    					 <a class="btn btn-default" href="{% url 'sponsor_edit' pk=sponsor.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    					 <a class="btn btn-default" href="{% url 'sponsor_remove' pk=sponsor.pk %}" onclick="return confirm('Are you sure want to delete. If you delete a sponsor, the players assigned to it will be deleted as well!!!');"><span class="glyphicon glyphicon-remove"></span></a>
+    					 {% else %}
+    					 <a class="btn btn-default" href="{% url 'sponsor_edit' pk=sponsor.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    					 {% endif %}
+    					</td>
+    				</tr>
+
 			{% endfor %}
 			</tbody>
 		</table>
